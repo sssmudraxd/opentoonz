@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 #ifndef TVER_INCLUDED
 #define TVER_INCLUDED
