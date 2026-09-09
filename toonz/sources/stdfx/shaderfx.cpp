@@ -406,23 +406,23 @@ void ShaderFx::initialize() {
       }
     }
 
-    inline void addUiConcept(const ShaderInterface::ParameterConcept &concept) {
-      if (!concept.isUI() || concept.m_parameterNames.empty()) return;
+    inline void addUiConcept(const ShaderInterface::ParameterConcept &pconcept) {
+      if (!pconcept.isUI() || pconcept.m_parameterNames.empty()) return;
 
       TParamUIConcept uiConcept = {
-          ::l_conceptTypes[concept.m_type - ShaderInterface::UI_CONCEPTS],
-          concept.m_label.toStdString()};
+          ::l_conceptTypes[pconcept.m_type - ShaderInterface::UI_CONCEPTS],
+          pconcept.m_label.toStdString()};
 
-      int n, nCount = int(concept.m_parameterNames.size());
+      int n, nCount = int(pconcept.m_parameterNames.size());
       for (n = 0; n != nCount; ++n) {
         TParam *param = m_this->getParams()->getParam(
-            concept.m_parameterNames[n].toStdString());
+            pconcept.m_parameterNames[n].toStdString());
         if (!param) break;
 
         uiConcept.m_params.push_back(param);
       }
 
-      if (uiConcept.m_params.size() == concept.m_parameterNames.size())
+      if (uiConcept.m_params.size() == pconcept.m_parameterNames.size())
         m_this->m_uiConcepts.push_back(uiConcept);
     }
 

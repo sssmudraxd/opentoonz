@@ -330,10 +330,10 @@ void ShaderInterface::loadData(TIStream &is) {
 
         is.closeChild();
       } else if (tagName == l_names[CONCEPT]) {
-        ParameterConcept concept;
-        is >> concept;
+        ParameterConcept pconcept;
+        is >> pconcept;
 
-        m_parConcepts.push_back(concept);
+        m_parConcepts.push_back(pconcept);
 
         is.closeChild();
       } else
